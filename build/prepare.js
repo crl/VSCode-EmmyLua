@@ -5,6 +5,7 @@ const fc = require('filecopy');
 const config = require('./config').default;
 
 async function downloadTo(url, path) {
+    console.log(url)
     return new Promise((r, e) => {
         const d = download(url);
         d.then(r).catch(err => e(err));
@@ -27,7 +28,7 @@ async function build() {
         fs.mkdirSync('temp')
     }
     
-    await downloadDepends();
+    //await downloadDepends();
 
     // mac
     await fc('temp/emmy_core.dylib', 'debugger/emmy/mac/emmy_core.dylib', { mkdirp: true });

@@ -128,7 +128,8 @@ async function startServer() {
             await validateJava();
         }
     } catch (error) {
-        vscode.window.showErrorMessage(error, "Try again")
+        let e:Error= error as Error;
+        vscode.window.showErrorMessage(e.message, "Try again")
         .then(startServer);
         return;
     }
